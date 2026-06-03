@@ -1,0 +1,221 @@
+* { /* Selektor za sve elemente na stranici */
+  box-sizing: border-box; /* Sirina i visina ukljucuju padding i border */
+}
+
+body { /* Osnovni stil cele stranice */
+  margin: 0; /* Uklanja podrazumevani razmak oko strane */
+  font-family: Arial, sans-serif; /* Postavlja osnovni font */
+  background-color: #e3f6f5; /* Svetla pozadina cele stranice */
+  color: #1f2933; /* Osnovna boja teksta */
+}
+
+.strana { /* Glavni wrapper za sav sadrzaj */
+  max-width: 1280px; /* Ogranicava sirinu stranice */
+  margin: 0 auto; /* Centira kontejner horizontalno */
+  padding: 20px; /* Unutrasnji razmak od ivica */
+}
+
+nav { /* Gornja navigaciona traka */
+  display: flex; /* Raspored elemenata u jednom redu */
+  justify-content: space-between; /* Levi i desni deo razdvaja na krajeve */
+  align-items: center; /* Vertikalno poravnava elemente po sredini */
+  gap: 20px; /* Razmak izmedju levog i desnog bloka */
+  padding: 14px 18px; /* Unutrasnji razmak u navigaciji */
+  border-radius: 10px; /* Zaobljene ivice navigacije */
+  background: rgba(255, 255, 255, 0.75); /* Poluprovidna bela pozadina */
+  box-shadow: 0 0 10px #dbd8e3; /* Blaga senka oko navigacije */
+}
+
+.navigacija-levo { /* Levi meni u navigaciji */
+  display: flex; /* Linkovi idu u jedan red */
+  flex-wrap: wrap; /* Ako nema mesta, prelaze u novi red */
+  gap: 10px 18px; /* Razmak izmedju stavki */
+  list-style: none; /* Uklanja tackice iz liste */
+  padding: 0; /* Uklanja unutrasnji razmak liste */
+  margin: 0; /* Uklanja spoljasnji razmak liste */
+}
+
+.navigacija-levo li { /* Svaka stavka u meniju */
+  display: inline-block; /* Stavke se ponasaju kao blokovi u redu */
+}
+
+.navigacija-desno { /* Desni deo navigacije */
+  white-space: nowrap; /* Ne dozvoljava prelom teksta u vise redova */
+}
+
+a.navlink { /* Svi linkovi sa klasom navlink */
+  text-decoration: none; /* Uklanja podvucenost */
+  color: #1f2933; /* Tamna boja linka */
+  transition: color 0.2s ease, border-color 0.2s ease; /* Glatka promena boje */
+}
+
+a.navlink:hover { /* Kada se mis prevede preko linka */
+  color: #155263; /* Menja boju linka */
+  border-bottom: 1px solid #155263; /* Dodaje donju liniju */
+}
+
+.sadrzaj { /* Glavni deo ispod navigacije */
+  display: flex; /* Leva i desna kolona idu jedna pored druge */
+  gap: 20px; /* Razmak izmedju kolona */
+  margin-top: 20px; /* Razmak od navigacije */
+  align-items: flex-start; /* Poravnava kolone pri vrhu */
+}
+
+.leva-strana { /* Levi glavni deo stranice */
+  flex: 1 1 70%; /* Zauzima veci deo prostora */
+  min-width: 0; /* Dozvoljava pravilno skupljanje flex elementa */
+}
+
+.desna-strana { /* Desni sidebar */
+  flex: 0 0 30%; /* Zauzima oko 30% sirine */
+  min-width: 280px; /* Minimalna sirina da sadrzaj ostane citljiv */
+}
+
+.baner { /* Veliki gornji blok sa pozadinskom slikom */
+  min-height: 300px; /* Minimalna visina bannera */
+  padding: 24px; /* Unutrasnji razmak unutar bannera */
+  border-radius: 12px; /* Zaobljeni uglovi */
+  background-image: url(https://petljamediastorage.blob.core.windows.net/root/Media/Default/images/slider/CppCS_osnovni_du%C5%BEe.jpg); /* Pozadinska slika */
+  background-size: cover; /* Slika pokriva ceo prostor */
+  background-position: center; /* Slika je centrirana */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Blaga senka */
+}
+
+.baner-naslov { /* Tekst preko bannera */
+  margin: 0 0 16px; /* Uklanja gornji margin i ostavlja donji */
+  padding-top: 90px; /* Spusta naslov nize u baneru */
+  color: #fff; /* Bela boja teksta zbog slike u pozadini */
+  font-size: 28px; /* Velicina naslova */
+  line-height: 1.2; /* Razmak izmedju redova */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); /* Da tekst bude citljiviji */
+}
+
+.link { /* Link "Pogledaj zbirke" */
+  display: inline-block; /* Ponasa se kao dugme */
+  margin-left: 0; /* Nema dodatnog levog razmaka */
+  padding: 10px 24px; /* Unutrasnji razmak, kao dugme */
+  border: 1px solid rgba(255, 255, 255, 0.85); /* Ivica dugmeta */
+  border-radius: 999px; /* Puni, okrugli oblik */
+  color: #fff; /* Bela boja teksta */
+  text-decoration: none; /* Bez podvucenosti */
+  background: rgba(21, 82, 99, 0.7); /* Poluprovidna boja dugmeta */
+  backdrop-filter: blur(2px); /* Blago zamucenje iza dugmeta */
+}
+
+.kursevi { /* Sekcija sa karticama kurseva */
+  margin-top: 20px; /* Razmak od bannera */
+}
+
+.kursevi h2 { /* Naslov sekcije kurseva */
+  margin: 0 0 16px; /* Uklanja gornji razmak i ostavlja donji */
+}
+
+.kursevi::after { /* Clearfix za float kartice */
+  content: ""; /* Pseudo-element bez sadrzaja */
+  display: block; /* Ponaša se kao blok */
+  clear: both; /* Cisti float elemente ispod */
+}
+
+.kurs { /* Jedna kartica kursa */
+  float: left; /* Kartice idu jedna pored druge */
+  width: calc(33.333% - 14px); /* Otprilike trecina sirine uz korekciju razmaka */
+  min-height: 320px; /* Minimalna visina kartice */
+  margin-right: 20px; /* Razmak izmedju kartica */
+  margin-bottom: 20px; /* Donji razmak */
+  padding: 18px; /* Unutrasnji razmak */
+  border-radius: 10px; /* Zaobljene ivice */
+  background-color: #5c5470; /* Osnovna boja kartice */
+  color: #fff; /* Bela boja teksta */
+  box-shadow: 4px 4px 4px #dbd8e3; /* Senka ispod kartice */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Glatka promena na hover */
+}
+
+.kurs:last-child { /* Poslednja kartica u nizu */
+  margin-right: 0; /* Uklanja desni razmak na poslednjoj kartici */
+}
+
+.kurs:hover { /* Hover efekat na kartici */
+  transform: translateY(-2px); /* Blago podizanje kartice */
+  background-color: #155263; /* Menja boju pozadine */
+}
+
+.srednji { /* Druga, posebno obojena kartica */
+  background-color: #00aaa0; /* Drugacija boja pozadine */
+}
+
+.srednja-slika { /* Slika unutar srednje kartice */
+  display: block; /* Slika postaje blok element */
+  width: 56px; /* Mala sirina slike */
+  margin-top: 18px; /* Razmak od teksta iznad */
+  margin-left: auto; /* Gura sliku udesno */
+  margin-right: 0; /* Nema desnog razmaka */
+}
+
+.pvesti { /* Naslov sekcije vesti */
+  margin: 0 0 12px; /* Razmak ispod naslova */
+  font-size: 24px; /* Veličina teksta */
+}
+
+.vesti { /* Jedna kartica vesti */
+  margin-bottom: 14px; /* Razmak između vesti */
+  padding: 10px 0 12px; /* Unutrašnji razmak gore/dole */
+  border-radius: 10px; /* Zaobljenje */
+  background-color: #fff; /* Bela pozadina */
+  box-shadow: 4px 4px 4px #dbd8e3; /* Senka */
+  overflow: hidden; /* Sprečava da sadržaj viri van kartice */
+}
+
+.vnaslov { /* Naslov unutar vesti */
+  margin: 0 10px 10px; /* Levo/desno i donji razmak */
+  padding-top: 4px; /* Malo udaljava od gornje ivice */
+}
+
+.vpasus { /* Tekst vesti */
+  margin: 0 10px 12px; /* Razmak oko pasusa */
+  line-height: 1.5; /* Veći razmak između redova */
+}
+
+.vest1,
+.vest2 { /* Slike u vestima */
+  display: block; /* Slika zauzima ceo red */
+  width: calc(100% - 20px); /* Širina skoro cele kartice */
+  margin: 0 10px 10px; /* Razmak od ivica */
+  border-radius: 8px; /* Zaobljeni uglovi slike */
+}
+
+.vest1:hover,
+.vest2:hover { /* Hover na slikama vesti */
+  transform: scale(1.01); /* Blago uvećanje slike */
+}
+
+@media (max-width: 960px) { /* Pravila za tablet i uži ekran */
+  .sadrzaj { /* Glavni raspored */
+    flex-direction: column; /* Kolone idu jedna ispod druge */
+  }
+
+  .desna-strana { /* Sidebar na užem ekranu */
+    flex-basis: auto; /* Uklanja fiksno ponašanje širine */
+    min-width: 0; /* Omogućava skupljanje */
+  }
+
+  .kurs { /* Kartice kurseva na užem ekranu */
+    width: 100%; /* Svaka kartica ide na punu širinu */
+    margin-right: 0; /* Uklanja desni razmak */
+  }
+}
+
+@media (max-width: 640px) { /* Pravila za mali ekran */
+  .strana { /* Glavni wrapper */
+    padding: 12px; /* Manji padding na telefonu */
+  }
+
+  nav { /* Navigacija */
+    flex-direction: column; /* Linkovi idu vertikalno */
+    align-items: flex-start; /* Poravnanje ulevo */
+  }
+
+  .baner-naslov { /* Naslov u banneru */
+    padding-top: 70px; /* Malo manji razmak na malom ekranu */
+    font-size: 24px; /* Manji font za telefon */
+  }
+}

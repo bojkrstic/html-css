@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML levo, CSS desno sa objasnjenjem</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --border: #d9dee5;
+      --text: #1f2933;
+      --muted: #5f6b7a;
+      --accent: #155263;
+      --accent2: #00aaa0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 24px;
+    }
+
+    .subtitle {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background: var(--panel);
+      border: 1px solid var(--border);
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      vertical-align: top;
+      padding: 12px 14px;
+    }
+
+    th {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      text-align: left;
+      font-size: 15px;
+    }
+
+    td {
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .html-col {
+      width: 44%;
+    }
+
+    .css-col {
+      width: 56%;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e9f4f7;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font: 13px/1.55 "Courier New", Courier, monospace;
+      color: #10212b;
+      tab-size: 2;
+    }
+
+    .note {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-left: 4px solid var(--accent);
+      background: #fff;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @page {
+      size: A3 landscape;
+      margin: 8mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML levo, CSS desno sa objašnjenjem</h1>
+  <p class="subtitle">
+    Leva strana pokazuje HTML blok, a desna strana odgovarajući CSS sa komentarima.
+    Ovo je zaseban PDF dokument i ne menja postojeće fajlove.
+  </p>
+
+  <table>
+    <tr>
+      <th class="html-col">HTML blok</th>
+      <th class="css-col">CSS selektori sa objašnjenjem</th>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Head</span>
+        <pre>&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width"&gt;
+  &lt;title&gt;JS Bin&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css2.css"&gt;
+&lt;/head&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Global</span>
+        <pre>* { /* Selektor za sve elemente na stranici */
+  box-sizing: border-box; /* Sirina i visina ukljucuju padding i border */
+}
+</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Body</span>
+        <pre>&lt;body&gt;
+  &lt;div class="strana"&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Body + wrapper</span>
+        <pre>body { /* Osnovni stil cele stranice */
+  margin: 0; /* Uklanja podrazumevani razmak oko strane */
+  font-family: Arial, sans-serif; /* Postavlja osnovni font */
+  background-color: #e3f6f5; /* Svetla pozadina cele stranice */
+  color: #1f2933; /* Osnovna boja teksta */
+}
+
+.strana { /* Glavni wrapper za sav sadrzaj */
+  max-width: 1280px; /* Ogranicava sirinu stranice */
+  margin: 0 auto; /* Centira kontejner horizontalno */
+  padding: 20px; /* Unutrasnji razmak od ivica */
+}</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Nav</span>
+        <pre>&lt;nav&gt;
+  &lt;ul class="navigacija-levo"&gt;
+    &lt;li&gt;&lt;b&gt;&lt;a class="navlink" href="#"&gt;NET.KABINET&lt;/a&gt;&lt;/b&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="navlink" href="#"&gt;ZBIRKE&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="navlink" href="#"&gt;ZBORNICA&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="navlink" href="#"&gt;TAKMICENJA&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="navlink" href="#"&gt;FORUM&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="navlink" href="#"&gt;BIBLIOTEKA&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="navlink" href="#"&gt;PROJEKTI&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="navigacija-desno"&gt;
+    &lt;a class="navlink" href="#"&gt;Uloguj se&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Navigation</span>
+        <pre>nav { /* Gornja navigaciona traka */
+  display: flex; /* Raspored elemenata u jednom redu */
+  justify-content: space-between; /* Levi i desni deo na krajeve */
+  align-items: center; /* Vertikalno poravnanje */
+  gap: 20px; /* Razmak izmedju blokova */
+  padding: 14px 18px; /* Unutrasnji razmak */
+  border-radius: 10px; /* Zaobljene ivice */
+  background: rgba(255, 255, 255, 0.75); /* Poluprovidna pozadina */
+  box-shadow: 0 0 10px #dbd8e3; /* Blaga senka */
+}
+
+.navigacija-levo { /* Levi meni */
+  display: flex; /* Linkovi idu u jedan red */
+  flex-wrap: wrap; /* Ako nema mesta, prelaze u novi red */
+  gap: 10px 18px; /* Razmak između stavki */
+  list-style: none; /* Bez tačkica */
+  padding: 0; /* Bez unutrašnjeg razmaka */
+  margin: 0; /* Bez spoljašnjeg razmaka */
+}
+
+.navigacija-levo li { /* Jedna stavka u meniju */
+  display: inline-block; /* Ponaša se kao blok u redu */
+}
+
+.navigacija-desno { /* Desni deo navigacije */
+  white-space: nowrap; /* Ne prelazi u novi red */
+}
+
+a.navlink { /* Linkovi u navigaciji */
+  text-decoration: none; /* Bez podvlačenja */
+  color: #1f2933; /* Tamna boja */
+  transition: color 0.2s ease, border-color 0.2s ease; /* Glatka animacija */
+}
+
+a.navlink:hover { /* Hover na linkovima */
+  color: #155263; /* Menja boju */
+  border-bottom: 1px solid #155263; /* Dodaje donju liniju */
+}</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Layout</span>
+        <pre>&lt;div class="sadrzaj"&gt;
+  &lt;main class="leva-strana"&gt;
+    ...
+  &lt;/main&gt;
+  &lt;aside class="desna-strana"&gt;
+    ...
+  &lt;/aside&gt;
+&lt;/div&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Columns</span>
+        <pre>.sadrzaj { /* Glavni raspored sadržaja */
+  display: flex; /* Leva i desna kolona */
+  gap: 20px; /* Razmak između kolona */
+  margin-top: 20px; /* Razmak od navigacije */
+  align-items: flex-start; /* Poravnanje pri vrhu */
+}
+
+.leva-strana { /* Levi glavni deo */
+  flex: 1 1 70%; /* Zauzima većinu prostora */
+  min-width: 0; /* Dozvoljava skupljanje */
+}
+
+.desna-strana { /* Desni sidebar */
+  flex: 0 0 30%; /* Uži kolonski blok */
+  min-width: 280px; /* Minimalna širina */
+}</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Banner</span>
+        <pre>&lt;div class="baner"&gt;
+  &lt;h4 class="baner-naslov"&gt;
+    Uci programiranje - resavaj&lt;br&gt;
+    algoritamske zadatke!
+  &lt;/h4&gt;
+  &lt;a class="link" href="#"&gt;Pogledaj zbirke&lt;/a&gt;
+&lt;/div&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Banner style</span>
+        <pre>.baner { /* Veliki blok sa pozadinskom slikom */
+  min-height: 300px; /* Minimalna visina */
+  padding: 24px; /* Unutrašnji razmak */
+  border-radius: 12px; /* Zaobljeni uglovi */
+  background-image: url(...); /* Pozadinska slika */
+  background-size: cover; /* Slika pokriva ceo prostor */
+  background-position: center; /* Slika je centrirana */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Blaga senka */
+}
+
+.baner-naslov { /* Tekst na slici */
+  margin: 0 0 16px; /* Donji razmak */
+  padding-top: 90px; /* Spušta naslov nize */
+  color: #fff; /* Bela boja teksta */
+  font-size: 28px; /* Veći font */
+  line-height: 1.2; /* Udobniji razmak */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); /* Čitljivost na slici */
+}
+
+.link { /* Link kao dugme */
+  display: inline-block; /* Kao dugme */
+  padding: 10px 24px; /* Unutrašnji razmak */
+  border: 1px solid rgba(255, 255, 255, 0.85); /* Okvir */
+  border-radius: 999px; /* Puni oblik */
+  color: #fff; /* Bela boja */
+  text-decoration: none; /* Bez podvlačenja */
+  background: rgba(21, 82, 99, 0.7); /* Poluprovidna pozadina */
+  backdrop-filter: blur(2px); /* Blagi blur iza linka */
+}</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Courses</span>
+        <pre>&lt;div class="kursevi"&gt;
+  &lt;h2&gt;Novo na Petlji&lt;/h2&gt;
+
+  &lt;div class="kurs"&gt;
+    &lt;h4&gt;PRIMENE SAVREMENOG RACUNARSTVA ZA 4. RAZRED GIMNAZIJE&lt;/h4&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class="kurs srednji"&gt;
+    &lt;h4&gt;BUDI DATA DRIVEN&lt;/h4&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;img class="srednja-slika" ...&gt;
+  &lt;/div&gt;
+
+  &lt;div class="kurs"&gt;
+    &lt;h4&gt;BAZE PODATAKA, RACUNARSKE MREZE I SERVERSKO VEB PROGRAMIRANJE ZA&lt;/h4&gt;
+    &lt;p&gt;...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Course cards</span>
+        <pre>.kursevi { /* Sekcija kurseva */
+  margin-top: 20px; /* Razmak od bannera */
+}
+
+.kursevi h2 { /* Naslov sekcije */
+  margin: 0 0 16px; /* Razmak ispod naslova */
+}
+
+.kursevi::after { /* Clearfix za float kartice */
+  content: ""; /* Pseudo element */
+  display: block; /* Blok ponašanje */
+  clear: both; /* Čisti float */
+}
+
+.kurs { /* Jedna kartica kursa */
+  float: left; /* Kartice u red */
+  width: calc(33.333% - 14px); /* Trećina širine */
+  min-height: 320px; /* Visina kartice */
+  margin-right: 20px; /* Razmak između kartica */
+  margin-bottom: 20px; /* Donji razmak */
+  padding: 18px; /* Unutrašnji razmak */
+  border-radius: 10px; /* Zaobljeni uglovi */
+  background-color: #5c5470; /* Osnovna boja */
+  color: #fff; /* Bela boja teksta */
+  box-shadow: 4px 4px 4px #dbd8e3; /* Senka */
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Animacija hovera */
+}
+
+.kurs:last-child { /* Poslednja kartica */
+  margin-right: 0; /* Bez desnog razmaka */
+}
+
+.kurs:hover { /* Hover efekat */
+  transform: translateY(-2px); /* Blago podizanje */
+  background-color: #155263; /* Promena boje */
+}
+
+.srednji { /* Posebna srednja kartica */
+  background-color: #00aaa0; /* Druga boja */
+}
+
+.srednja-slika { /* Slika u srednjoj kartici */
+  display: block; /* Slika u novom redu */
+  width: 56px; /* Mala širina */
+  margin-top: 18px; /* Razmak od teksta */
+  margin-left: auto; /* Guranje udesno */
+  margin-right: 0; /* Bez desnog razmaka */
+}</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">News</span>
+        <pre>&lt;aside class="desna-strana"&gt;
+  &lt;h3 class="pvesti"&gt;Petljine vesti&lt;/h3&gt;
+
+  &lt;div class="vesti"&gt;
+    &lt;h4 class="vnaslov"&gt;Letnja skola programiranja&lt;/h4&gt;
+    &lt;p class="vpasus"&gt;...&lt;/p&gt;
+    &lt;img class="vest1" ...&gt;
+  &lt;/div&gt;
+
+  &lt;div class="vesti"&gt;
+    &lt;h4 class="vnaslov"&gt;Savremeno racunarstvo&lt;/h4&gt;
+    &lt;p class="vpasus"&gt;...&lt;/p&gt;
+    &lt;img class="vest2" ...&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">News cards</span>
+        <pre>.pvesti { /* Naslov sidebar-a */
+  margin: 0 0 12px; /* Razmak ispod naslova */
+  font-size: 24px; /* Veći font */
+}
+
+.vesti { /* Jedna vest */
+  margin-bottom: 14px; /* Razmak između vesti */
+  padding: 10px 0 12px; /* Unutrašnji razmak */
+  border-radius: 10px; /* Zaobljenje */
+  background-color: #fff; /* Bela pozadina */
+  box-shadow: 4px 4px 4px #dbd8e3; /* Senka */
+  overflow: hidden; /* Sakriva višak sadržaja */
+}
+
+.vnaslov { /* Naslov vesti */
+  margin: 0 10px 10px; /* Razmak oko naslova */
+  padding-top: 4px; /* Malo spuštanje */
+}
+
+.vpasus { /* Tekst vesti */
+  margin: 0 10px 12px; /* Razmak oko teksta */
+  line-height: 1.5; /* Čitljivost */
+}
+
+.vest1,
+.vest2 { /* Slike u vestima */
+  display: block; /* Slika ide u novi red */
+  width: calc(100% - 20px); /* Gotovo cela širina kartice */
+  margin: 0 10px 10px; /* Razmak od ivica */
+  border-radius: 8px; /* Zaobljeni uglovi */
+}
+
+.vest1:hover,
+.vest2:hover { /* Hover na slikama */
+  transform: scale(1.01); /* Blago uvećanje */
+}</pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="html-col">
+        <span class="tag">Responsive</span>
+        <pre>Responsive ponašanje je u CSS-u, ne u HTML-u.</pre>
+      </td>
+      <td class="css-col">
+        <span class="tag">Media queries</span>
+        <pre>@media (max-width: 960px) { /* Tablet i uži ekran */
+  .sadrzaj { /* Glavni raspored */
+    flex-direction: column; /* Kolone idu jedna ispod druge */
+  }
+
+  .desna-strana { /* Sidebar ispod levog dela */
+    flex-basis: auto; /* Uklanja fiksno ponašanje */
+    min-width: 0; /* Dozvoljava skupljanje */
+  }
+
+  .kurs { /* Kartice kurseva na užem ekranu */
+    width: 100%; /* Puna širina */
+    margin-right: 0; /* Bez desnog razmaka */
+  }
+}
+
+@media (max-width: 640px) { /* Mali ekran */
+  .strana { /* Glavni wrapper */
+    padding: 12px; /* Manji padding */
+  }
+
+  nav { /* Navigacija */
+    flex-direction: column; /* Vertikalno slaganje */
+    align-items: flex-start; /* Levo poravnanje */
+  }
+
+  .baner-naslov { /* Naslov bannera */
+    padding-top: 70px; /* Manje spuštanje */
+    font-size: 24px; /* Manji font */
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+
+  <div class="note">
+    Ovo je novi PDF dokument. Ne menja postojeći PDF sa obrnutim rasporedom.
+  </div>
+</body>
+</html>
